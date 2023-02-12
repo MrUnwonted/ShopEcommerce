@@ -11,11 +11,6 @@ public class MainController {
 		return "index";
 	}
 
-	// @GetMapping("/index")
-	// public String viewIndexPage() {
-	// 	return "index";
-	// }
-
 	@GetMapping("/pricing")
 	public String viewPricingPage() {
 		return "/pricing";
