@@ -10,4 +10,19 @@ public class MainController {
 	public String viewHomePage() {
 		return "index";
 	}
+
+	// @GetMapping("/index")
+	// public String viewIndexPage() {
+	// 	return "index";
+	// }
+
+	@GetMapping("/pricing")
+	public String viewPricingPage() {
+		return "/pricing";
+	}
+
+	@GetMapping("/blocks")
+	public String viewBlocksPage() {
+		return "blocks";
+	}
 }
