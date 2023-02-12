@@ -10,7 +10,7 @@
   <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
 </head>
 <body class="sidebar-menu-collapsed">
-  <!-- <div class="se-pre-con"></div> -->
+  <div class="se-pre-con"></div>
 
   <section>
     <!-- sidebar menu start -->
@@ -94,6 +94,38 @@
           <h2>Manage Users</h2>
         </div>
 
+        <div>
+          <table class="table table-dark table-striped table-responsive-xl">
+            <thead>
+              <tr>
+                <th scope="col">User Id</th>
+                <th scope="col">Photos</th>
+                <th scope="col">Email</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Enabled</th>
+                <th scope="col">Roles</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+             <tr th:each="user : ${listUsers}">
+                <td>[[${user.id }]]</td>
+                <td></td>
+                <td>[[${user.email }]]</td>
+                <td>[[${user.firstName }]]</td>
+                <td>[[${user.lastName }]]</td>
+                <td>[[${user.enabled }]]</td>
+                <td>[[${user.roles }]]</td>
+                <td>
+                    Edit &nbsp; Delete
+                </td>
+             </tr>
+            </tbody>
+          </table>
+
+
+        </div>
                                          
 
 
@@ -135,16 +167,6 @@
   
   <script src="assets/js/jquery-3.3.1.min.js"></script>
   <script src="assets/js/jquery-1.10.2.min.js"></script>
-  
-  <!-- chart js -->
-  <script src="assets/js/Chart.min.js"></script>
-  <script src="assets/js/utils.js"></script>
-  <!-- //chart js -->
-  
-  <!-- Different scripts of charts.  Ex.Barchart, Linechart -->
-  <script src="assets/js/bar.js"></script>
-  <script src="assets/js/linechart.js"></script>
-  <!-- //Different scripts of charts.  Ex.Barchart, Linechart -->
   
   
   <script src="assets/js/jquery.nicescroll.js"></script>
