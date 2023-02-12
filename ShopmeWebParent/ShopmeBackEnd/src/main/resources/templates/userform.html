@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manage Users</title>
+  <title>Create New User</title>
   <link rel="stylesheet" th:href="@{/assets/css/style-starter.css}">
   <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900&display=swap" rel="stylesheet">
   <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
 </head>
 <body class="sidebar-menu-collapsed">
-  <div class="se-pre-con"></div>
+  <!-- <div class="se-pre-con"></div> -->
 
   <section>
     <!-- sidebar menu start -->
@@ -89,20 +89,170 @@
     <!-- content -->
     <div class="container-fluid content-top-gap">
       
+      <div>
+        <h2>Manage Users  |  Create New User</h2> <br>
+      </div>
 
-       Write here
+<br>
+
+        <section class="vh-100" >
+          <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+              <div class="col-xl-9">
+        
+         <form th:action="@{/users/save}" method="post" style="max-width: 700px; margin: 0 auto;"
+                th:object="${user}">
+                <div class="card" style="border-radius: 15px;">
+                  <div class="card-body">
+        
+                    <div class="row align-items-center pt-4 pb-3">
+                      <div class="col-md-3 ps-5">
+        
+                        <h6 class="mb-0">First Name:</h6>
+        
+                      </div>
+                      <div class="col-md-9 pe-5">
+        
+                        <input type="text" class="form-control form-control-lg" 
+                            th:field="*{firstName}" required minlength="2" maxlength="45" />
+        
+                      </div>
+                    </div>
+        
+                    <hr class="mx-n3">
+
+                    <div class="row align-items-center pt-4 pb-3">
+                      <div class="col-md-3 ps-5">
+        
+                        <h6 class="mb-0">Last Name:</h6>
+        
+                      </div>
+                      <div class="col-md-9 pe-5">
+        
+                        <input type="text" class="form-control form-control-lg" 
+                            th:field="*{lastName}" required minlength="2" maxlength="45" />
+        
+                      </div>
+                    </div>
+        
+                    <hr class="mx-n3">
+        
+                    <div class="row align-items-center py-3">
+                      <div class="col-md-3 ps-5">
+        
+                        <h6 class="mb-0">Email address:</h6>
+        
+                      </div>
+                      <div class="col-md-9 pe-5">
+        
+                        <input type="email" class="form-control form-control-lg" 
+                              placeholder="example@example.com" th:field="*{email}" required minlength="8" maxlength="128"/>
+        
+                      </div>
+                    </div>
+        
+                    <hr class="mx-n3">
+        
+                    <div class="row align-items-center pt-4 pb-3">
+                      <div class="col-md-3 ps-5">
+        
+                        <h6 class="mb-0">Password:</h6>
+        
+                      </div>
+                      <div class="col-md-9 pe-5">
+        
+                        <input type="password" class="form-control form-control-lg" 
+                            th:field="*{password}" required minlength="2" maxlength="20" />
+        
+                      </div>
+                    </div>
+        
+        
+                    <hr class="mx-n3">
+
+
+                    <div class="row align-items-center pt-4 pb-3">
+                      <div class="col-md-3 ps-5">
+        
+                        <h6 class="mb-0">Roles:</h6>
+        
+                     
+                        <div class="text-lg-right">
+                        <th:block  th:each="role : ${listRoles}">
+                          <input type="checkbox" class="form-control " th:field="*{roles}" 
+                                  th:value="${role.id}"  th:text="${role.name}"/>
+                              - <small>[[${role.description}]]</small> <br>
+                        </th:block>
+                      </div>
+                      </div>
+                    </div>
+        
+        
+                    <hr class="mx-n3">
+        
+                    <div class="row align-items-center pt-4 pb-3">
+                      <div class="col-md-3 ps-5">
+        
+                        <h6 class="mb-0">Enabled:</h6>
+        
+                      </div>
+                      <div class="col-md-7 pe-4">
+        
+                        <input type="checkbox" class="form-control form-control-lg" 
+                            th:field="*{enabled}"  />
+        
+                      </div>
+                    </div>
+        
+                    <hr class="mx-n3">
+
+
+                    <div class="row align-items-center py-3">
+                      <div class="col-md-3 ps-5">
+        
+                        <h6 class="mb-0">Upload CV</h6>
+        
+                      </div>
+                      <div class="col-md-9 pe-5">
+        
+                        <input class="form-control form-control-lg" id="formFileLg" type="file" />
+                        <div class="small text-muted mt-2">Upload your CV/Resume or any other relevant file. Max file
+                          size 50 MB</div>
+        
+                      </div>
+                    </div>
+        
+                    <hr class="mx-n3">
+        
+                    <div class="px-5 py-4">
+                      <button type="submit" value="Save" class="btn btn-primary btn-lg">Save</button>
+                      <input type="button" value="Cancel" class="btn btn-secondary btn-lg" id="buttonCancel" />
+                    </div>
+        
+                  </div>
+                </div>
+        </form> 
+              </div>
+            </div>
+          </div>
+        </section>
+       
                                          
 
 
     
     </div>
   </div>
+
+
     <!--footer section start-->
   <footer class="dashboard">
     <p>&copy 2023 Shopme. All Rights Reserved | Design by <a href="https://github.com/MrUnwonted" target="_blank"
         class="text-primary">Arjun</a></p>
   </footer>
   <!--footer section end-->
+
+
   <!-- move top -->
   <button onclick="topFunction()" id="movetop" class="bg-primary" title="Go to top">
     <span class="fa fa-angle-up"></span>
@@ -172,5 +322,14 @@
   
   <!-- Bootstrap Core JavaScript -->
   <script src="assets/js/bootstrap.min.js"></script>
+ 
+  <script type="text/javaScript">
+    $(document).ready(function(){
+      $("#buttonCancel").on("click",function(){
+        window.location = "[[@{/users}]]"
+      });
+    });
+</script>
+ 
 </body>
 </html>
