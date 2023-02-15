@@ -10,7 +10,7 @@
   <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
 </head>
 <body class="sidebar-menu-collapsed">
-  <!-- <div class="se-pre-con"></div> -->
+    <div class="se-pre-con"></div>
 
   <section>
     <!-- sidebar menu start -->
@@ -28,7 +28,7 @@
           <img src="image-path" alt="Your logo" title="Your logo" class="img-fluid" style="height:35px;" />
         </a>
       </div>
-      <!-- //image logo -->
+       image logo -->
   
       <div class="text-center">
         <a th:href="@{/}" title="logo"><img th:src="@{/assets/images/ShopmeAdminSmall.png}" alt="logo-icon"> </a> <br>
@@ -212,23 +212,23 @@
 </script>
 <!-- /move top -->
 
-
-<script src="assets/js/jquery-3.3.1.min.js"></script>
-<script src="assets/js/jquery-1.10.2.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script> -->
+<script th:src="@{/assets/js/jquery-3.3.1.min.js}"></script>
+<script th:src="@{/assets/js/jquery-1.10.2.min.js}"></script>
 
 <!-- chart js -->
-<script src="assets/js/Chart.min.js"></script>
-<script src="assets/js/utils.js"></script>
+<script th:src="@{/assets/js/Chart.min.js}"></script>
+<script th:src="@{/assets/js/utils.js}"></script>
 <!-- //chart js -->
 
 <!-- Different scripts of charts.  Ex.Barchart, Linechart -->
-<script src="assets/js/bar.js"></script>
-<script src="assets/js/linechart.js"></script>
+<script th:src="@{/assets/js/bar.js}"></script>
+<script th:src="@{/assets/js/linechart.js}"></script>
 <!-- //Different scripts of charts.  Ex.Barchart, Linechart -->
 
 
-<script src="assets/js/jquery.nicescroll.js"></script>
-<script src="assets/js/scripts.js"></script>
+<script th:src="@{/assets/js/jquery.nicescroll.js}"></script>
+<script th:src="@{/assets/js/scripts.js}"></script>
 
 <!-- close script -->
 <script>
@@ -254,7 +254,7 @@
 <!-- disable body scroll when navbar is in active -->
 
  <!-- loading-gif Js -->
- <script src="assets/js/modernizr.js"></script>
+ <script th:src="@{/assets/js/modernizr.js}"></script>
  <script>
      $(window).load(function () {
          // Animate loader off screen
@@ -265,14 +265,34 @@
 
 <!-- Bootstrap Core JavaScript -->
 <script th:src="@{/assets/js/bootstrap.min.js}"></script>
-<script type="text/javaScript">
-  $(document).ready(function(){
-    $("#buttonCancel").on("click",function(){
-      window.location = "[[@{/users}]]";
-    });
-  });
-</script>
+  <script type="text/javascript">
+	MAX_FILE_SIZE = 102400; // 100KB
 
+	moduleURL = "[[@{/users}]]";
+
+	function checkEmailUnique(form) {
+		url = "[[@{/users/check_email}]]";
+		userEmail = $("#email").val();
+		userId = $("#id").val();
+		csrfValue = $("input[name='_csrf']").val();
+
+		params = {id: userId, email: userEmail, _csrf: csrfValue};
+
+		$.post(url, params, function(response) {
+			if (response == "OK") {
+				form.submit();
+			} else if (response == "Duplicated") {
+				showWarningModal("There is another user having the email " + userEmail);
+			} else {
+				showErrorModal("Unknown response from server");
+			}
+		}).fail(function() {
+			showErrorModal("Could not connect to the server");
+		});
+
+		return false;
+	}
+</script>
 
 </body>
 
