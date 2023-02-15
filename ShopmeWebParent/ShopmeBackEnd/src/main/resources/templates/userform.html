@@ -8,6 +8,7 @@
   <link rel="stylesheet" th:href="@{/assets/css/style-starter.css}">
   <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900&display=swap" rel="stylesheet">
   <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+  <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}" ></script>
 </head>
 <body class="sidebar-menu-collapsed">
     <div class="se-pre-con"></div>
@@ -165,7 +166,8 @@
           
       <div class="text-center">
         <input type="submit" value="Save" class="btn btn-primary m-3" />
-        <input type="button" value="Cancel" class="btn btn-secondary" id="buttonCancel" />
+        <!-- <input type="button" value="Cancel" class="btn btn-secondary" id="buttonCancel" /> -->
+        <a th:href="@{/users}" class="btn btn-secondary">Cancel</a>
       </div>
     </div>
     </form>
@@ -212,20 +214,9 @@
 </script>
 <!-- /move top -->
 
-<!-- <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script> -->
+
 <script th:src="@{/assets/js/jquery-3.3.1.min.js}"></script>
 <script th:src="@{/assets/js/jquery-1.10.2.min.js}"></script>
-
-<!-- chart js -->
-<script th:src="@{/assets/js/Chart.min.js}"></script>
-<script th:src="@{/assets/js/utils.js}"></script>
-<!-- //chart js -->
-
-<!-- Different scripts of charts.  Ex.Barchart, Linechart -->
-<script th:src="@{/assets/js/bar.js}"></script>
-<script th:src="@{/assets/js/linechart.js}"></script>
-<!-- //Different scripts of charts.  Ex.Barchart, Linechart -->
-
 
 <script th:src="@{/assets/js/jquery.nicescroll.js}"></script>
 <script th:src="@{/assets/js/scripts.js}"></script>
@@ -265,19 +256,19 @@
 
 <!-- Bootstrap Core JavaScript -->
 <script th:src="@{/assets/js/bootstrap.min.js}"></script>
-  <script type="text/javascript">
+<script type="text/javascript">
 	MAX_FILE_SIZE = 102400; // 100KB
-
+	
 	moduleURL = "[[@{/users}]]";
-
+	
 	function checkEmailUnique(form) {
 		url = "[[@{/users/check_email}]]";
 		userEmail = $("#email").val();
 		userId = $("#id").val();
 		csrfValue = $("input[name='_csrf']").val();
-
+		
 		params = {id: userId, email: userEmail, _csrf: csrfValue};
-
+		
 		$.post(url, params, function(response) {
 			if (response == "OK") {
 				form.submit();
@@ -289,7 +280,7 @@
 		}).fail(function() {
 			showErrorModal("Could not connect to the server");
 		});
-
+		
 		return false;
 	}
 </script>
