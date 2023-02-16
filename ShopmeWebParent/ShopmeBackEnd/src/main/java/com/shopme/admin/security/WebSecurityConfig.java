@@ -21,21 +21,18 @@ public class WebSecurityConfig {
     @Bean
     protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests()
-                .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .usernameParameter("email")
-                .permitAll();
+                .anyRequest().permitAll();
+//                .authenticated()
+//                .and()
+//                .formLogin()
+//                .loginPage("/login")
+//                .usernameParameter("email")
+//                .permitAll()
+//                .and()
+//                .csrf().ignoringRequestMatchers("/images/**", "/js/**", "/webjars/**");
         return http.build();
     }
     
-
-    public void configure(WebSecurity web) throws Exception {
-        web
-            .ignoring()
-                .requestMatchers("/images/**", "/js/**", "/webjars/**");
-    }
 
     
 }
