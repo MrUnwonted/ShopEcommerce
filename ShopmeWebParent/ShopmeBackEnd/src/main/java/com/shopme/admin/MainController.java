@@ -11,13 +11,9 @@ public class MainController {
 		return "index";
 	}
 
-	@GetMapping("/pricing")
+	@GetMapping("/login")
 	public String viewPricingPage() {
-		return "/pricing";
+		return "login";
 	}
 
-	@GetMapping("/blocks")
-	public String viewBlocksPage() {
-		return "blocks";
-	}
 }

@@ -23,6 +23,8 @@ public class UserController {
 	 * @Autowired private User
 	 */	
 	
+	
+	
 	@GetMapping("/users")
 	public String listAll(Model model) {
 		List<User> listUsers = service.listAll();

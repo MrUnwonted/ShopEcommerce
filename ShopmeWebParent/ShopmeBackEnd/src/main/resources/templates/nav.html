@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Create new User</title>
+  <title>[[${pageTitle}]]</title>
   <link rel="stylesheet" th:href="@{/assets/css/style-starter.css}">
   <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900&display=swap" rel="stylesheet">
   <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+  <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}" ></script>
 </head>
 <body class="sidebar-menu-collapsed">
     <div class="se-pre-con"></div>
@@ -91,7 +92,6 @@
       
      
 
-     
        
        
                                          
@@ -134,20 +134,9 @@
 </script>
 <!-- /move top -->
 
-<!-- <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script> -->
+
 <script th:src="@{/assets/js/jquery-3.3.1.min.js}"></script>
 <script th:src="@{/assets/js/jquery-1.10.2.min.js}"></script>
-
-<!-- chart js -->
-<script th:src="@{/assets/js/Chart.min.js}"></script>
-<script th:src="@{/assets/js/utils.js}"></script>
-<!-- //chart js -->
-
-<!-- Different scripts of charts.  Ex.Barchart, Linechart -->
-<script th:src="@{/assets/js/bar.js}"></script>
-<script th:src="@{/assets/js/linechart.js}"></script>
-<!-- //Different scripts of charts.  Ex.Barchart, Linechart -->
-
 
 <script th:src="@{/assets/js/jquery.nicescroll.js}"></script>
 <script th:src="@{/assets/js/scripts.js}"></script>
@@ -187,34 +176,7 @@
 
 <!-- Bootstrap Core JavaScript -->
 <script th:src="@{/assets/js/bootstrap.min.js}"></script>
-  <script type="text/javascript">
-	MAX_FILE_SIZE = 102400; // 100KB
 
-	moduleURL = "[[@{/users}]]";
-
-	function checkEmailUnique(form) {
-		url = "[[@{/users/check_email}]]";
-		userEmail = $("#email").val();
-		userId = $("#id").val();
-		csrfValue = $("input[name='_csrf']").val();
-
-		params = {id: userId, email: userEmail, _csrf: csrfValue};
-
-		$.post(url, params, function(response) {
-			if (response == "OK") {
-				form.submit();
-			} else if (response == "Duplicated") {
-				showWarningModal("There is another user having the email " + userEmail);
-			} else {
-				showErrorModal("Unknown response from server");
-			}
-		}).fail(function() {
-			showErrorModal("Could not connect to the server");
-		});
-
-		return false;
-	}
-</script>
 
 </body>
 
