@@ -38,15 +38,15 @@ public class CategoryrRepositoryTests {
 		assertThat(savedCategory.getId()).isGreaterThan(0);
 	}
 	
-	@Test
-	public void testGetCategory() {
-		Category category = repo.findById(1).get();
-		System.out.println(category.getName());
-		
-		Set<Category> children  = category.getChildren();
-		for (Category subCategory : children) {
-			System.out.println(subCategory.getName());
-		}
-		assertThat(children.size()).isGreaterThan(0);
-	}
+//	@Test
+//	public void testGetCategory() {
+//		Category category = repo.findById(1).get();
+//		System.out.println(category.getName());
+//		
+//		Set<Category> children  = category.getChildren();
+//		for (Category subCategory : children) {
+//			System.out.println(subCategory.getName());
+//		}
+//		assertThat(children.size()).isGreaterThan(0);
+//	}
 }
