@@ -32,6 +32,11 @@ public class UserController {
 		return  "users";
 	}
 	
+	@GetMapping("/categories")
+	public String listCategories(Model model) {
+		return  "people";
+	}
+	
 	@GetMapping("/users/new")
 	public String newUser(Model model) {
 		List<Role> listRoles = service.listRoles();
