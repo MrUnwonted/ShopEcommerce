@@ -1,21 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" 
 xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[[${pageTitle}]]</title>
-  <link rel="stylesheet" th:href="@{/assets/css/style-starter.css}">
-  <link rel="stylesheet" th:href="@{/assets/css/style.css}">
-  <link rel="stylesheet" th:href="@{/fontawesome/all.css}">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900&display=swap" rel="stylesheet">
-  <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
-</head>
+<head th:replace="fragments :: page_head('Users - Shopme Admin')" > </head>
+
 <body class="sidebar-menu-collapsed">
   <div class="se-pre-con"></div>
 
-  <section>
+  <section th:replace="fragments :: menu">
     <!-- sidebar menu start -->
     <div class="sidebar-menu sticky-sidebar-menu">
   
@@ -151,10 +142,7 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
     </div>
   </div>
     <!--footer section start-->
-  <footer class="dashboard">
-    <p>&copy 2023 Shopme. All Rights Reserved | Design by <a href="https://github.com/MrUnwonted" target="_blank"
-        class="text-primary">Arjun</a></p>
-  </footer>
+    <footer class="dashboard" th:replace="fragments :: footer"></footer>
   <!--footer section end-->
   <!-- move top -->
   <button onclick="topFunction()" id="movetop" class="bg-primary" title="Go to top">

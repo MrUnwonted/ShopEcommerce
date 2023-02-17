@@ -5,7 +5,7 @@
 <body class="sidebar-menu-collapsed">
     <div class="se-pre-con"></div>
 
-  <section>
+    <section th:replace="fragments :: menu">
     <!-- sidebar menu start -->
     <div class="sidebar-menu sticky-sidebar-menu">
   
@@ -175,38 +175,8 @@
 
 
     <!--footer section start-->
-  <footer class="dashboard">
-    <p>&copy 2023 Shopme. All Rights Reserved | Design by <a href="https://github.com/MrUnwonted" target="_blank"
-        class="text-primary">Arjun</a></p>
-  </footer>
+    <footer class="dashboard" th:replace="fragments :: footer"></footer>
   <!--footer section end-->
- <!-- move top -->
-<button onclick="topFunction()" id="movetop" class="bg-primary" title="Go to top">
-  <span class="fa fa-angle-up"></span>
-</button>
-<script>
-  // When the user scrolls down 20px from the top of the document, show the button
-  window.onscroll = function () {
-    scrollFunction()
-  };
-
-  function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-      document.getElementById("movetop").style.display = "block";
-    } else {
-      document.getElementById("movetop").style.display = "none";
-    }
-  }
-
-  // When the user clicks on the button, scroll to the top of the document
-  function topFunction() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-  }
-</script>
-<!-- /move top -->
-
-
 <script th:src="@{/assets/js/jquery-3.3.1.min.js}"></script>
 <script th:src="@{/assets/js/jquery-1.10.2.min.js}"></script>
 
@@ -249,32 +219,6 @@
 <!-- Bootstrap Core JavaScript -->
 <script th:src="@{/assets/js/bootstrap.min.js}"></script>
 <script type="text/javascript">
-	MAX_FILE_SIZE = 102400; // 100KB
-	
-	moduleURL = "[[@{/users}]]";
-	
-	function checkEmailUnique(form) {
-		url = "[[@{/users/check_email}]]";
-		userEmail = $("#email").val();
-		userId = $("#id").val();
-		csrfValue = $("input[name='_csrf']").val();
-		
-		params = {id: userId, email: userEmail, _csrf: csrfValue};
-		
-		$.post(url, params, function(response) {
-			if (response == "OK") {
-				form.submit();
-			} else if (response == "Duplicated") {
-				showWarningModal("There is another user having the email " + userEmail);
-			} else {
-				showErrorModal("Unknown response from server");
-			}
-		}).fail(function() {
-			showErrorModal("Could not connect to the server");
-		});
-		
-		return false;
-	}
 </script>
 
 </body>

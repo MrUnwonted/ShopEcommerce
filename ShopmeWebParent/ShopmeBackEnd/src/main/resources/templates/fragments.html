@@ -6,14 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>[[${title}]]</title>
   <link rel="stylesheet" th:href="@{/assets/css/style-starter.css}">
+  <link rel="stylesheet" th:href="@{/assets/css/style.css}">
+  <link rel="stylesheet" th:href="@{/fontawesome/all.css}">
   <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900&display=swap" rel="stylesheet">
   <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
   <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}" ></script>
+  <script type="text/javascript" th:src="@{/assets/js/common.js}" ></script>
 </head>
 <body class="sidebar-menu-collapsed">
     <div class="se-pre-con"></div>
 
-  <section>
+  <section th:fragment="menu">
     <!-- sidebar menu start -->
     <div class="sidebar-menu sticky-sidebar-menu">
   
@@ -104,7 +107,7 @@
 
 
     <!--footer section start-->
-  <footer class="dashboard">
+  <footer class="dashboard" th:fragment="footer">
     <p>&copy 2023 Shopme. All Rights Reserved | Design by <a href="https://github.com/MrUnwonted" target="_blank"
         class="text-primary">Arjun</a></p>
   </footer>
