@@ -1,27 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head>  
-    <title>Shoppers &mdash; Colorlib e-Commerce Template</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700" > 
-    <link th:href="@{/fonts/icomoon/style.css}" rel="stylesheet" type="text/css"/>
-
-
-    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
-    <link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
-    <link rel="stylesheet" th:href="@{/css/jquery-ui.css}">
-    <link rel="stylesheet" th:href="@{/css/owl.carousel.min.css}">
-    <link rel="stylesheet" th:href="@{/css/owl.theme.default.min.css}">
-
-
-    <link rel="stylesheet" th:href="@{css/aos.css}">
-
-    <!-- <link rel="stylesheet" th:href="@{/css/style.css}"> -->
-    <link th:href="@{/css/style.css}" rel="stylesheet">
-    
-  </head>
+  <head th:replace="fragments :: page_head('Home - Shopme User')"> </head> 
   <body>
   
   <div class="site-wrap">
@@ -273,7 +252,7 @@
         </div>
         <div class="row align-items-center">
           <div class="col-md-12 col-lg-7 mb-5">
-            <a href="@(/#">}<img th:src="@{/images/blog_1.jpg}" alt="Image placeholder" class="img-fluid rounded"></a>
+            <a href="@{/}"><img th:src="@{/images/blog_1.jpg}" alt="Image placeholder" class="img-fluid rounded"></a>
           </div>
           <div class="col-md-12 col-lg-5 text-center pl-md-5">
             <h2><a href="#">50% less in all items</a></h2>

@@ -22,10 +22,9 @@ public class WebSecurityConfig {
     @Bean
     protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-        .authorizeHttpRequests()        		
-                .anyRequest().permitAll();
-                
-                
+        .authorizeHttpRequests()
+                .anyRequest()
+                .permitAll();
         return http.build();
     }
     

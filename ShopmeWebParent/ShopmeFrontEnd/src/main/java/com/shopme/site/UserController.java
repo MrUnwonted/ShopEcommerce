@@ -26,7 +26,15 @@ public class UserController {
 		return "contact";
 	}
 	
+	@GetMapping("/checkout")
+	public String viewcheckoutPage() {
+		return "checkout";
+	}
 	
+	@GetMapping("/thankyou")
+	public String viewthankyouPage() {
+		return "thankyou";
+	}
 	
 	
 	
